@@ -57,8 +57,8 @@ All commands below are run from the repository root.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/j-thie/Safety-Evaluation-of-Vision-Language-Models-on-CheXpert-Analyzing.git
-cd Safety-Evaluation-of-Vision-Language-Models-on-CheXpert-Analyzing
+git clone clone-anonymous
+cd open-clone
 ```
 
 ### 2. Create the MedGemma environment
