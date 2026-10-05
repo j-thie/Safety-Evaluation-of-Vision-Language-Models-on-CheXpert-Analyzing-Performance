@@ -41,9 +41,10 @@ Safety-Evaluation-of-Vision-Language-Models-on-CheXpert/
 ├── analysis/
 │
 ├── docs/
-│
-├── prompts/
-│   └── prompt_conditions.pdf
+|   ├── ... 
+|   └── assets/
+|      └── prompt_conditions.pdf
+   
 
 
 ```
