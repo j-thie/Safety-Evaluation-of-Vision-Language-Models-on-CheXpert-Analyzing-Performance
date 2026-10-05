@@ -3,8 +3,8 @@
 ## 1. Clone and record the code version
 
 ```bash
-git clone https://github.com/j-thie/Safety-Evaluation-of-Vision-Language-Models-on-CheXpert-Analyzing-Performance-Bias-and-Uncertainty.git
-cd Safety-Evaluation-of-Vision-Language-Models-on-CheXpert-Analyzing-Performance-Bias-and-Uncertainty
+git clone link-to-clone
+cd open-clone
 
 git rev-parse HEAD
 ```
@@ -140,7 +140,7 @@ model="mistralai/Ministral-3-14B-Instruct-2512"
 tokenizer="mistralai/Ministral-3-14B-Instruct-2512"
 ```
 
-For irrelevant-image experiments:
+For OFD-image experiments:
 
 ```python
 imagenet_root = Path("/data/imagenet")
