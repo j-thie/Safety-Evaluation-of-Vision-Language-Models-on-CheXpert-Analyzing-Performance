@@ -14,16 +14,16 @@
 
 The `_3` scripts allow three-choice outputs (`0`, `1`, or `2`)
 
-| Model     | Condition          | Script                |     Image sent to model | Parser accepts | Current prompt name | Output filename                 |
-| --------- | ------------------ | --------------------- | ----------------------: | -------------- | ------------------- | ------------------------------- |
-| MedGemma  | Normal             | `MG_normal_3.py`      |                     Yes | `0`, `1`, `2`  | `prompt_f`          | `MG_normal_3prompt_f.json`      |
-| MedGemma  | No Image — Unknown | `MG_unknown_3.py`     |                      No | `0`, `1`, `2`  | `prompt_f`          | `MG_unknown_3prompt_f.json`     |
-| MedGemma  | No Image — Known   | `MG_known_3.py`       |                      No | `0`, `1`, `2`  | `prompt_f`          | `MG_known_3prompt_f.json`       |
-| MedGemma  | OFD Image   | `MG_irrelevant_3.py`  |    Random ImageNet JPEG | `0`, `1`, `2`  | `prompt_e`          | `MG_irrelevant_3prompt_e.json`  |
-| Ministral | Normal             | `mis_normal_3.py`     |                     Yes | `0`, `1`, `2`  | `prompt_a`          | `mis_normal_3prompt_a.json`     |
-| Ministral | No Image — Unknown | `mis_unknown_3.py`    |                      No | `0`, `1`, `2`  | `prompt_f`          | `mis_unknown_3prompt_f.json`    |
-| Ministral | No Image — Known   | `mis_known_3.py`      |                      No | `0`, `1`, `2`  | `prompt_f`          | `mis_known_3_prompt_f.json`     |
-| Ministral | OFD Image   | `mis_irrelevant_3.py` |    Random ImageNet JPEG | `0`, `1`, `2`  | `prompt_f`          | `mis_irrelevant_3prompt_f.json` |
+| Model     | Condition          | Script                |     Image sent to model | Parser accepts  | Current prompt name | Output filename                 |
+| --------- | ------------------ | --------------------- | ----------------------: | --------------  | ------------------- | ------------------------------- |
+| MedGemma  | Normal             | `MG_normal_3.py`      |                     Yes | `0`, `1`, `2`   | `prompt_f`          | `MG_normal_3prompt_f.json`      |
+| MedGemma  | No Image — Unknown | `MG_unknown_3.py`     |                      No | `0`, `1`, `2`   | `prompt_f`          | `MG_unknown_3prompt_f.json`     |
+| MedGemma  | No Image — Known   | `MG_known_3.py`       |                      No | `0`, `1`, `2`   | `prompt_f`          | `MG_known_3prompt_f.json`       |
+| MedGemma  | OFD Image   | `MG_irrelevant_3.py`  |    Random ImageNet JPEG | `0`, `1`, `2`   | `prompt_e`          | `MG_irrelevant_3prompt_e.json`  |
+| Ministral | Normal             | `mis_normal_3.py`     |                     Yes | `0`, `1`, `2`   | `prompt_a`          | `mis_normal_3prompt_a.json`     |
+| Ministral | No Image — Unknown | `mis_unknown_3.py`    |                      No | `0`, `1`, `2`   | `prompt_f`          | `mis_unknown_3prompt_f.json`    |
+| Ministral | No Image — Known   | `mis_known_3.py`      |                      No | `0`, `1`, `2`   | `prompt_f`          | `mis_known_3_prompt_f.json`     |
+| Ministral | OFD Image   | `mis_irrelevant_3.py` |    Random ImageNet JPEG | `0`, `1`, `2`   | `prompt_f`          | `mis_irrelevant_3prompt_f.json` |
 
 > The values under **Current prompt name** describe the uploaded script versions. Changing `PROMPT_NAME` changes only the output filename; it does not automatically change the embedded prompt text.
 
