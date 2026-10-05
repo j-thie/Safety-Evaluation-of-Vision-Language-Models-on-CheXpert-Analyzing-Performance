@@ -18,11 +18,9 @@
 ## MedGemma inference
 
 ```bash
-python MG_normal_2.py
+
 python MG_normal_3.py
-python MG_unknown_2.py
 python MG_unknown_3.py
-python MG_known_2.py
 python MG_known_3.py
 python MG_irrelevant_3.py
 ```
@@ -30,24 +28,21 @@ python MG_irrelevant_3.py
 ## Ministral inference
 
 ```bash
-python mis_normal_2.py
 python mis_normal_3.py
-python mis_unknown_2.py
 python mis_unknown_3.py
-python mis_known_2.py
 python mis_known_3.py
-python mis_irrelevant_3.py
+python mis_OFD_3.py
 ```
 
 ## SLURM
 
 ```bash
 sbatch \
-  --export=ALL,REPO_DIR="$PWD",SCRIPT="MG_normal_2.py" \
+  --export=ALL,REPO_DIR="$PWD",SCRIPT="MG_normal_3.py" \
   scripts/run_medgemma.sh
 
 sbatch \
-  --export=ALL,REPO_DIR="$PWD",SCRIPT="mis_normal_2.py" \
+  --export=ALL,REPO_DIR="$PWD",SCRIPT="mis_normal_3.py" \
   scripts/run_mistral.sh
 ```
 
@@ -80,15 +75,12 @@ Configure the input lists and paths exactly as described in [`ANALYSIS.md`](/doc
 ```bash
 python calculations.py
 python norm3_f1_acc.py
-python every_category_per_model.py
 ```
 
 ### Bootstrap analysis
 
 ```bash
 python F1_bootstrapping.py
-per_category_per_prompt_typebootstrapping.py
-python per_category_per_prompt_typebootstrapping.py
 ```
 
  
@@ -96,9 +88,6 @@ python per_category_per_prompt_typebootstrapping.py
 ### Demographic and invalid-response analysis
 
 ```bash
-python bias.py
-python invalid_per_gender.py
-python 'count_invalids_&_2.py'
 python invlaid_calculations.py
 python invlaid_calculations3.py
 ```
@@ -106,21 +95,9 @@ python invlaid_calculations3.py
 ### Prompt uncertainty and consistency
 
 ```bash
-python entropy_calculations_2.py
 python entropy_cal_3.py
-python SD_Comparision.py
 python SD_Comparision_3.py
 ```
-
-### Projection analysis
-
-```bash
-python count_zeros_for_frontal_lateral.py
-python everythingforFL.py
-python 'f1&accuracy_of_FL.py'
-```
-
-The filenames containing `&` must be quoted in shells.
 
 ## Analysis outputs to archive
 
@@ -130,9 +107,7 @@ At minimum, archive:
 outputs/analysis/
 ├── metrics/
 ├── bootstrap/
-├── bias/
 ├── invalid/
-├── projection/
 └── uncertainty/
 ```
 
