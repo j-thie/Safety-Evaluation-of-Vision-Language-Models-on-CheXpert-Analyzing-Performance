@@ -32,13 +32,10 @@ Update them as follows:
 These variables appear in:
 
 ```text
-MG_normal_2.py
 MG_normal_3.py
-MG_unknown_2.py
 MG_unknown_3.py
-MG_known_2.py
 MG_known_3.py
-MG_irrelevant_3.py
+MG_OFD_3.py
 ```
 
 The irrelevant-image condition additionally requires:
@@ -78,13 +75,10 @@ output_dir = "/absolute/path/to/output/directory"
 These variables appear in:
 
 ```text
-mis_normal_2.py
 mis_normal_3.py
-mis_unknown_2.py
 mis_unknown_3.py
-mis_known_2.py
 mis_known_3.py
-mis_irrelevant_3.py
+mis_OFD_3.py
 ```
 
 The Ministral model is currently defined directly inside each script:
@@ -152,12 +146,6 @@ For example, a three-choice prompt must use a parser that accepts:
 2
 ```
 
-A binary prompt must use a parser that accepts only:
-
-```text
-0
-1
-```
 
 The complete prompt definitions are provided in [`PROMPTS.md`](PROMPTS.md).
 
@@ -174,9 +162,7 @@ The model is explicitly told that the chest X-ray is unavailable.
 Relevant scripts include:
 
 ```text
-MG_known_2.py
 MG_known_3.py
-mis_known_2.py
 mis_known_3.py
 ```
 
@@ -187,9 +173,7 @@ The image is not supplied to the model, but the prompt does not explicitly state
 Relevant scripts include:
 
 ```text
-MG_unknown_2.py
 MG_unknown_3.py
-mis_unknown_2.py
 mis_unknown_3.py
 ```
 
@@ -206,7 +190,7 @@ The condition is therefore operationally image-free, but the original image file
 
 ---
 
-## Irrelevant-image configuration
+## Out Of Distribution -image configuration
 
 The irrelevant-image scripts replace the CheXpert image with an unrelated image.
 
@@ -252,16 +236,15 @@ outputs/
 │   │   ├── normal/
 │   │   ├── no_image_known/
 │   │   ├── no_image_unknown/
-│   │   └── irrelevant_image/
+│   │   └── OFD_image/
 │   └── ministral/
 │       ├── normal/
 │       ├── no_image_known/
 │       ├── no_image_unknown/
-│       └── irrelevant_image/
+│       └── OFD_image/
 └── analysis/
     ├── metrics/
     ├── bootstrap/
-    ├── bias/
     ├── invalid_responses/
     ├── uncertainty/
     └── projection/
@@ -287,27 +270,27 @@ Before submitting a job, update:
 
 ```bash
 REPO_DIR="/absolute/path/to/repository"
-SCRIPT="MG_normal_2.py"
+SCRIPT="MG_normal_3.py"
 ```
 
 For Ministral:
 
 ```bash
 REPO_DIR="/absolute/path/to/repository"
-SCRIPT="mis_normal_2.py"
+SCRIPT="mis_normal_3.py"
 ```
 
 Submit the corrected launchers using:
 
 ```bash
 sbatch \
-  --export=ALL,REPO_DIR="$PWD",SCRIPT="MG_normal_2.py" \
+  --export=ALL,REPO_DIR="$PWD",SCRIPT="MG_normal_3.py" \
   scripts/run_medgemma.sh
 ```
 
 ```bash
 sbatch \
-  --export=ALL,REPO_DIR="$PWD",SCRIPT="mis_normal_2.py" \
+  --export=ALL,REPO_DIR="$PWD",SCRIPT="mis_normal_3.py" \
   scripts/run_mistral.sh
 ```
 
@@ -334,22 +317,11 @@ scripts/run_mistral.sh
 
 | Script | Variable(s) to edit | Input type | Output |
 |---|---|---|---|
-| `calculations.py` | `json_path`, `save_path`, three output filenames | one prediction JSON | CSV and text files |
 | `norm3_f1_acc.py` | `pathways` | MedGemma and Ministral prompt JSONs | `norm3_f1_acc.csv` |
-| `every_category_per_model.py` | `FILES` | all prompt JSONs | `final_table_<model>.csv` |
 | `F1_bootstrapping.py` | `FILES` | matched prompt JSONs | six bootstrap CSV files |
-| `per_category_per_prompt_typebootstrapping.py` | `MED_FILES`, `MIS_FILES` | model prompt JSONs | `per_category_bootstrap_results.csv` |
-| `bias.py` | `DATA_FOLDER` | directory of prediction JSONs | console unless modified |
-| `invalid_per_gender.py` | `MEDGEMMA_FILES`, `MISTRAL_FILES` | model prompt JSONs | `invalid_summary.csv` |
-| `count_invalids_&_2.py` | `EXPERIMENTS` | six prompts per scenario/model | console unless modified |
-| `invlaid_calculations.py` | `EXPERIMENTS` | binary prompt JSONs | console unless modified |
 | `invlaid_calculations3.py` | `EXPERIMENTS` | three-choice prompt JSONs | console unless modified |
-| `entropy_calculations_2.py` | `EXPERIMENTS` | binary prompt JSONs | console unless modified |
 | `entropy_cal_3.py` | `EXPERIMENTS`, `SCENARIO_CLASSES` | three-choice prompt JSONs | console unless modified |
-| `SD_Comparision.py` | `EXPERIMENTS` | binary prompt JSONs | console unless modified |
 | `SD_Comparision_3.py` | `EXPERIMENTS` | three-choice prompt JSONs | console unless modified |
-| `count_zeros_for_frontal_lateral.py` | `FILES` | projection prompt JSONs | console unless modified |
-| `everythingforFL.py` | `MEDGEMMA_FILES`, `MISTRAL_FILES` | projection prompt JSONs | record-level CSV |
-| `f1&accuracy_of_FL.py` | `MEDGEMMA_FILES`, `MISTRAL_FILES` | projection prompt JSONs | record and metrics CSVs |
+
 
 See [`ANALYSIS.md`](ANALYSIS.md) for exact commands and blocking fixes.
