@@ -2,21 +2,12 @@
 
 The repository contains six prompt variants, A–F, across four response/availability families. The complete wording is retained in [`assets/prompt_conditions.pdf`](assets/prompt_conditions.pdf).
 
-## Prompt tone groups
 
-The six prompt variants are divided into two tone groups:
-
-* **Prompts A–C:** medically toned, using more formal clinical language;
-* **Prompts D–F:** naturally toned, using more conversational language.
-
-Within each tone group, the prompts vary by response format and image-availability condition.
 
 ## Prompt families
 
 | Family                                           |         Image available | Allowed labels |
 | ------------------------------------------------ | ----------------------: | -------------- |
-| Binary: normal and no-image-unknown family       | As defined by condition | `0`, `1`       |
-| Binary: no-image-known family                    |                      No | `0`, `1`       |
 | Three-choice: no-image-known family              |                      No | `0`, `1`, `2`  |
 | Three-choice: normal and no-image-unknown family | As defined by condition | `0`, `1`, `2`  |
 
