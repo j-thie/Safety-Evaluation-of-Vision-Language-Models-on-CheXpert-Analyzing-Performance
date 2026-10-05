@@ -124,6 +124,7 @@ imagenet_root = Path("/absolute/path/to/irrelevant/image/dataset")
 
 Exact file and line locations are listed in [Configuration](docs/CONFIGURATION.md).
 
+
 ### 6. Run inference
 <table>
   <thead>
@@ -134,7 +135,7 @@ Exact file and line locations are listed in [Configuration](docs/CONFIGURATION.m
   </thead>
   <tbody>
     <tr>
-      </td>
+      <td>
         <code>python MG_normal_3.py</code><br>
         <code>python MG_unknown_3.py</code><br>
         <code>python MG_known_3.py</code><br>
