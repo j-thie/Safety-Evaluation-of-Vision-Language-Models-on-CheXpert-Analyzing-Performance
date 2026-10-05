@@ -119,7 +119,7 @@ tokenizer = "mistralai/Ministral-3-14B-Instruct-2512"
 Irrelevant-image scripts additionally require:
 
 ```python
-imagenet_root = Path("/absolute/path/to/irrelevant/image/dataset")
+imagenet_root = Path("/absolute/path/to/OFD/image/dataset")
 ```
 
 Exact file and line locations are listed in [Configuration](docs/CONFIGURATION.md).
